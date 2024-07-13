@@ -23,7 +23,7 @@ function App() {
         <div className="subscription-link">
           https://feiniaoyun11.life/api/v1/client/subscribe?token=825f3a953d399afe7fb094ca7e1b6320
         </div>
-        <img src="/img.png" alt="二维码" className="qr-code"/>
+        <img src={`${process.env.PUBLIC_URL}/img.png`} alt="二维码" className="qr-code"/>
       </section>
 
       <section className="wallet">
