@@ -30,6 +30,13 @@ function App() {
             小火箭(密码6090)
           </a>
         </h2>
+
+
+        <h2>
+          <a href="https://github.com/2dust/v2rayNG/releases/tag/1.8.29" className="link">
+            安卓 V2Ray
+          </a>
+        </h2>
       </section>
 
       <section className="subscription">
@@ -47,7 +54,32 @@ function App() {
           <button>Clash 订阅</button>
         </div>
 
-        {/*<img src={`${process.env.PUBLIC_URL}/img.png`} alt="二维码" className="qr-code"/>*/}
+        <div className="item">
+          <a download="clash.yaml" href={`${process.env.PUBLIC_URL}/clash.yaml`}>Clash 文件下载</a>
+        </div>
+
+        <div className="item">
+          <a download="v2ray.txt" href={`${process.env.PUBLIC_URL}/v2ray.txt`}>V2txt 文件下载</a>
+        </div>
+      </section>
+
+      <section className="subscription">
+        <h1>订阅</h1>
+        <div className="item">
+          <span>飞鸟云</span><br/>
+          <span>{feiNiaoYun}</span>
+        </div>
+
+
+        <div className="item">
+          <span>V2云Clash</span><br/>
+          <span>{clash}</span>
+        </div>
+
+        <div className="item">
+          <span>V2云V2ray</span><br/>
+          <span>{v2ray}</span>
+        </div>
       </section>
 
       <section className="wallet">

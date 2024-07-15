@@ -1,12 +1,4 @@
 export function copyToClipboard(text) {
-  if (navigator.clipboard) {
-    // Modern way using the Clipboard API
-    navigator.clipboard.writeText(text).then(() => {
-      console.log('Text copied to clipboard');
-    }).catch(err => {
-      console.error('Could not copy text: ', err);
-    });
-  } else {
     // Fallback for older browsers
     const textArea = document.createElement('textarea');
     textArea.value = text;
@@ -29,5 +21,4 @@ export function copyToClipboard(text) {
     }
 
     document.body.removeChild(textArea);
-  }
 }

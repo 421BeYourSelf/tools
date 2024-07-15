@@ -15,6 +15,10 @@ section {
   background-color: #f9f9f9;
 }
 
+.toolbox h2 {
+  margin: 20px;
+}
+
 h1 {
   font-size: 24px;
   color: #333;
@@ -44,10 +48,14 @@ h2 {
   font-size: 14px;
   color: #444;
   word-break: break-all;
-  margin: 10px 0;
+  margin: 20px;
 }
 
 .qr-code {
   width: 150px;
   height: 150px;
+}
+
+.item {
+  margin: 20px;
 }
