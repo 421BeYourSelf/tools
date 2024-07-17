@@ -22,5 +22,9 @@ export default function Tools() {
     <div className="item">
       <a download="veworld.apk" href={`${process.env.PUBLIC_URL}/veworld.apk`}>快速下载 VeWorld</a>
     </div>
+
+    <div className='item'>
+      <a href="https://gitee.com/culala/tools/releases/tag/veworld">Gitee 下载VeWorld</a>
+    </div>
   </div>
 }
