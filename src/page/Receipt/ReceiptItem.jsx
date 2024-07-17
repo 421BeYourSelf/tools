@@ -6,7 +6,7 @@ const ReceiptItem = ({items}) => {
       <>
         {
           items.map(item => {
-            return <div>
+            return <div key={item.name}>
               <div>{item.name}/{item.code}</div>
               <div className="receipt-items">
                 <span>${item.price.toFixed(2)}</span>

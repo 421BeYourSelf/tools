@@ -1,10 +1,9 @@
-body {
+.receipt-container {
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: row;
     font-family: 'Courier New', Courier, monospace;
-    background: #f0f0f0;
     margin: 20px;
 }
 

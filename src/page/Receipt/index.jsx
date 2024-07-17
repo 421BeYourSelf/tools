@@ -4,19 +4,22 @@ import ReceiptItem from './ReceiptItem';
 import ReceiptFooter from './ReceiptFooter';
 import './style.css'
 import {Button} from "antd";
-import html2canvas from 'html2canvas';
+import html2canvas from "html2canvas";
 
 
-const Receipt = ({amount = 40}) => {
-
+const Receipt = () => {
+  const [amount, setAmount] = useState(60)
   const [items, setItems] = useState([]);
 
   function handleDownloadImage() {
-    const element = document.getElementById('receipt');
+
+    setAmount((v) => v - 1)
+
+    const element = document.querySelector('.old-receipt');
 
     // 使用 html2canvas 截取图像并生成 Canvas
     html2canvas(element, {
-      scale: 2 // 增加 scale 以提高分辨率
+      scale: 1 // 增加 scale 以提高分辨率
     }).then(function (canvas) {
       // 将 Canvas 转换为 Blob 对象
       canvas.toBlob(function (blob) {
@@ -31,23 +34,24 @@ const Receipt = ({amount = 40}) => {
 
         // 清理 URL 对象
         URL.revokeObjectURL(imageUrl);
-      }, 'image/jpeg', 0.8); // 使用 JPEG 格式和质量
+      }, 'image/jpeg', 0.8); // 使用 JPEG 格式和高质量
     });
   }
-
 
   useEffect(() => {
     setItems(getRandomItems(amount));
   }, [amount]);
 
   return (
-    <div style={{position: "relative"}}>
-      <div id="receipt">
+    <div className="receipt-container" style={{position: "relative"}}>
+      <div>
+        <Button onClick={() => handleDownloadImage()} size="large">打印票据</Button>
+      </div>
+      <div id="receipt" className="old-receipt">
         <ReceiptHeader/>
         <ReceiptItem items={items}/>
         <ReceiptFooter items={items}/>
       </div>
-      <Button onClick={() => handleDownloadImage()} size="large" className="receipt-btn">打印票据</Button>
     </div>
   );
 };
@@ -169,34 +173,24 @@ function getRandomItems(amount = 10) {
   let numberOfItems = Math.max(Math.floor(Math.random() * 5) + 6, amount); // 确保最少购买10样
 
   for (let i = 0; i < numberOfItems; i++) {
-    let product;
-    if (Math.random() < 0.5) {
-      product = products[Math.floor(Math.random() * products.length)];
-    } else {
-      product = householdItems[Math.floor(Math.random() * householdItems.length)];
-    }
+    const product = products[Math.floor(Math.random() * products.length)];
     const quantity = (Math.random() * 5 + 1).toFixed(2); // 随机数量
     const price = (Math.random() * 10 + 1).toFixed(2); // 随机价格
     const total = (quantity * price).toFixed(2); // 计算总价
-
-    // 如果选择的是字符串，则构造成对象
-    if (typeof product === 'string') {
-      selectedItems.push({
-        name: product,
-        quantity: parseFloat(quantity),
-        price: parseFloat(price),
-        total: parseFloat(total),
-      });
-    } else {
-      selectedItems.push({
-        ...product,
-        quantity: parseFloat(quantity),
-        price: parseFloat(price),
-        total: parseFloat(total),
-      });
-    }
+    selectedItems.push({
+      ...product,
+      quantity: parseFloat(quantity),
+      price: parseFloat(price),
+      total: parseFloat(total),
+    });
   }
 
-  return selectedItems;
+  return [...selectedItems, {name: "Chips", code: "2900702034244", quantity: 1, price: 5, total: 5}, {
+    name: "Jelly",
+    code: "2900702034244",
+    quantity: 2,
+    price: 2,
+    total: 4
+  }];
 }
 

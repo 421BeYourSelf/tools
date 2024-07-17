@@ -1,0 +1,73 @@
+.receipt-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: row;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px;
+}
+
+
+#receipt {
+    width: 350px;
+    background: #fff;
+    padding: 10px;
+    white-space: pre-wrap;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.line {
+    border-top: 1px dashed #000;
+    margin: 8px 0;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.style1 {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f8f8f8;
+}
+
+.style2 {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff3e0;
+}
+
+.style3 {
+    font-family: 'Verdana', sans-serif;
+    background-color: #e8f5e9;
+}
+
+
+.download-btn {
+    width: 200px;
+    height: 50px;
+    float: right;
+}
+
+.receipt-items {
+    display: flex;
+    justify-content: end;
+}
+
+.receipt-items span {
+    padding: 5px 15px;
+}
+
+.receipt-btn {
+    position: absolute;
+    left: 400px;
+    top: 0;
+}
